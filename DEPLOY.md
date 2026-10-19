@@ -16,16 +16,16 @@ publishes the `site/` directory as-is.
 
 ---
 
-## Step 1 — Push to GitHub
+## Step 1 — Push to GitHub ✅ done
 
-The repo is already initialised and committed locally. Create an empty repo on
-GitHub (no README/licence — this repo already has commits), then:
+The repo lives at **github.com/rcxb559/chrisbyers** and `main` is pushed and
+tracking `origin/main`. Nothing further is needed here.
+
+To push later changes:
 
 ```bash
-cd /Users/chrisbyers/Desktop/Projects/ChrisByers && git remote add origin git@github.com:YOUR-USERNAME/chrisbyers-app.git && git branch -M main && git push -u origin main
+cd /Users/chrisbyers/Desktop/Projects/ChrisByers && git add -A && git commit -m "Describe the change" && git push
 ```
-
-> Prefer not to use GitHub? Skip to the drag-and-drop option in Step 2b.
 
 ---
 
