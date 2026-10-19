@@ -3,8 +3,10 @@ import { mkdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname;
-const SRC = path.join(ROOT, 'site/assets/img');
-const OUT = path.join(SRC, 'r');
+// Masters live outside site/ so they are never deployed; only the generated
+// variants in site/assets/img/r/ are published.
+const SRC = path.join(ROOT, 'masters');
+const OUT = path.join(ROOT, 'site/assets/img/r');
 await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 

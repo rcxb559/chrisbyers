@@ -188,9 +188,9 @@ The `sizes` values are measured, not guessed: the hero portrait is 34.2% of the
 | About portrait | 231 KB | 48 KB | 26 KB |
 | **Total** | **510 KB** | **113 KB** | **60 KB** |
 
-The originals are kept in `site/assets/img/` as the source masters. They are no
-longer referenced by the page, so they aren't downloaded — but keep them, since
-regenerating the variants needs them.
+The originals moved to `masters/`, outside the published directory. The page
+never requests them, so deploying 510 KB of unused JPEG served no purpose — but
+they're kept in the repo because regenerating the variants needs them.
 
 ### A4 — hero animation
 The `h1` and the portrait are the LCP candidates, so animating them from

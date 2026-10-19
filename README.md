@@ -17,8 +17,12 @@ site/              <- Netlify publish directory
     js/site.js
     fonts/         <- self-hosted, subsetted woff2
     img/
+      r/           <- generated AVIF/WebP/JPEG variants (these are the ones served)
+      og-*.jpg     <- Open Graph card
     favicon.svg
 netlify.toml       <- redirects, headers, cache policy
+masters/           <- full-size source photos; NOT deployed
+tools/             <- image + favicon generators; NOT deployed
 reference/         <- original design export; NOT deployed
 ```
 

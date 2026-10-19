@@ -14,7 +14,10 @@ cd tools && npm install sharp@0.33.5 wawoff2@2.0.1 opentype.js@1.3.4
 ## generate-images.mjs
 
 Rebuilds `site/assets/img/r/` — the AVIF / WebP / JPEG variants referenced by
-the `<picture>` elements — from the master JPEGs in `site/assets/img/`.
+the `<picture>` elements — from the master JPEGs in `masters/`.
+
+The masters live outside `site/` on purpose: they are 510 KB combined and the
+page never requests them, so there is no reason to deploy them.
 
 ```bash
 node tools/generate-images.mjs
