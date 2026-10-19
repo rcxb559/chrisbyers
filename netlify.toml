@@ -31,8 +31,10 @@
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; frame-ancestors 'self'; object-src 'none'; upgrade-insecure-requests"
 
-# Fingerprint-free assets: these filenames are stable, so keep the TTL modest
-# enough that a redeploy is picked up, but long enough to help repeat visits.
+# Fingerprint-free assets. Fonts never change content under the same name, so
+# they can be immutable. CSS and JS DO change under the same name, so they must
+# revalidate on every request — otherwise a redeploy is invisible to anyone
+# holding a cached copy until it expires. The ETag makes revalidation a 304.
 [[headers]]
   for = "/assets/fonts/*"
   [headers.values]
@@ -46,12 +48,12 @@
 [[headers]]
   for = "/assets/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/assets/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/index.html"
