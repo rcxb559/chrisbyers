@@ -1686,29 +1686,26 @@ main:focus {
   }
 }
 
+/* Hero entrance.
+   The h1 and the portrait are the Largest Contentful Paint candidates, so they
+   are deliberately NOT animated from opacity 0 — an entrance animation on those
+   delays LCP by the full duration of the animation plus its delay. They paint
+   immediately; the supporting copy and stats carry the stagger instead. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1 {
-    animation: rise 0.45s var(--ease) both;
-  }
-
   .hero-role {
-    animation: rise 0.45s var(--ease) 0.08s both;
+    animation: rise 0.4s var(--ease) 0.04s both;
   }
 
   .hero-lede {
-    animation: rise 0.45s var(--ease) 0.14s both;
+    animation: rise 0.4s var(--ease) 0.1s both;
   }
 
   .hero-actions {
-    animation: rise 0.45s var(--ease) 0.2s both;
-  }
-
-  .hero-media {
-    animation: rise 0.45s var(--ease) 0.12s both;
+    animation: rise 0.4s var(--ease) 0.16s both;
   }
 
   .stats {
-    animation: rise 0.45s var(--ease) 0.26s both;
+    animation: rise 0.4s var(--ease) 0.22s both;
   }
 }
 
@@ -2022,5 +2019,22 @@ main:focus {
   .js [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Touch tap targets.
+   The inline links in the About sidebar, the contact list, and the press card
+   are ~19-21px tall, which is comfortable with a mouse but tight on a phone.
+   On coarse pointers only, pad them vertically toward the 44px guideline
+   without changing the desktop layout or the text baseline. */
+@media (pointer: coarse) {
+  .detail-list a,
+  .contact-row a,
+  .media-card p a,
+  .about-note a {
+    display: inline-block;
+    padding-block: 11px;
+    /* Keep the padded box from pushing the rows apart. */
+    margin-block: -11px;
   }
 }

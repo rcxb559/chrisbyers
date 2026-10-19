@@ -5,3 +5,5 @@ node_modules/
 
 # Original export archive (contents live in site/ and reference/)
 Chris-Byers-Portfolio-Site.zip
+tools/node_modules/
+tools/package*.json

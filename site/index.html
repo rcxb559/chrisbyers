@@ -27,7 +27,10 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/chris-byers.jpg" as="image">
+  <link rel="preload" as="image" type="image/avif"
+        href="assets/img/r/hero-688.avif"
+        imagesrcset="assets/img/r/hero-400.avif 400w, assets/img/r/hero-688.avif 688w, assets/img/r/hero-900.avif 900w"
+        imagesizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 31vw, 451px">
   <link rel="stylesheet" href="assets/css/site.css">
   <script>document.documentElement.classList.add("js");</script>
 
@@ -120,7 +123,20 @@
 
           <div class="hero-media">
             <div class="portrait-frame">
-              <img src="assets/img/chris-byers.jpg" width="900" height="1125" alt="Chris Byers, wearing a blue blazer, photographed against a warm neutral backdrop." fetchpriority="high">
+              <picture>
+                <source type="image/avif"
+                        srcset="assets/img/r/hero-400.avif 400w, assets/img/r/hero-688.avif 688w, assets/img/r/hero-900.avif 900w"
+                        sizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 31vw, 451px">
+                <source type="image/webp"
+                        srcset="assets/img/r/hero-400.webp 400w, assets/img/r/hero-688.webp 688w, assets/img/r/hero-900.webp 900w"
+                        sizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 31vw, 451px">
+                <img src="assets/img/r/hero-688.jpg"
+                     srcset="assets/img/r/hero-400.jpg 400w, assets/img/r/hero-688.jpg 688w, assets/img/r/hero-900.jpg 900w"
+                     sizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 31vw, 451px"
+                     width="900" height="1125"
+                     alt="Chris Byers, wearing a blue blazer, photographed against a warm neutral backdrop."
+                     fetchpriority="high" decoding="async">
+              </picture>
               <div class="portrait-badge">
                 <span>Oklahoma City</span>
                 <strong>Building since 2000</strong>
@@ -256,7 +272,7 @@
             <summary>
               <span class="role-years">2010&ndash;2023</span>
               <span class="role-main">
-                <span class="role-company">IntelliStack <span class="role-alias">(formerly Formstack)</span></span>
+                <h3 class="role-company">IntelliStack <span class="role-alias">(formerly Formstack)</span></h3>
                 <span class="role-meta">
                   <span>Chief Executive Officer</span>
                   <span>Oklahoma City</span>
@@ -295,7 +311,7 @@
             <summary>
               <span class="role-years">2007&ndash;2010</span>
               <span class="role-main">
-                <span class="role-company">Blue Door Ministries, Inc.</span>
+                <h3 class="role-company">Blue Door Ministries, Inc.</h3>
                 <span class="role-meta">
                   <span>President</span>
                   <span>London, United Kingdom</span>
@@ -329,7 +345,7 @@
             <summary>
               <span class="role-years">2004&ndash;2007</span>
               <span class="role-main">
-                <span class="role-company">Foundation Surgery Affiliates</span>
+                <h3 class="role-company">Foundation Surgery Affiliates</h3>
                 <span class="role-meta">
                   <span>Vice President of Finance &amp; Investor Relations</span>
                 </span>
@@ -670,7 +686,19 @@
 
           <aside class="about-side" data-reveal>
             <div class="about-portrait">
-              <img src="assets/img/chris-byers-square.jpg" width="1000" height="1000" alt="Portrait of Chris Byers." loading="lazy">
+              <picture>
+                <source type="image/avif"
+                        srcset="assets/img/r/square-400.avif 400w, assets/img/r/square-784.avif 784w, assets/img/r/square-1000.avif 1000w"
+                        sizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 35vw, 515px">
+                <source type="image/webp"
+                        srcset="assets/img/r/square-400.webp 400w, assets/img/r/square-784.webp 784w, assets/img/r/square-1000.webp 1000w"
+                        sizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 35vw, 515px">
+                <img src="assets/img/r/square-784.jpg"
+                     srcset="assets/img/r/square-400.jpg 400w, assets/img/r/square-784.jpg 784w, assets/img/r/square-1000.jpg 1000w"
+                     sizes="(max-width: 980px) min(520px, 88vw), (max-width: 1432px) 35vw, 515px"
+                     width="1000" height="1000"
+                     alt="Portrait of Chris Byers." loading="lazy" decoding="async">
+              </picture>
             </div>
             <dl class="detail-list">
               <dt>Based</dt>
