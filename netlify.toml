@@ -1,0 +1,59 @@
+# Netlify configuration — chrisbyers.app
+# Static site: no build step, publish the `site` directory as-is.
+
+[build]
+  publish = "site"
+  command = ""
+
+# ---------------------------------------------------------------------------
+# Redirects
+# Canonical host is the apex (https://chrisbyers.app/) to match <link rel="canonical">.
+# Netlify serves both apex and www; this forces www -> apex so there is one
+# indexable URL. Swap the two if you'd rather make www canonical (also update
+# the canonical/OG tags in site/index.html if you do).
+# ---------------------------------------------------------------------------
+[[redirects]]
+  from = "https://www.chrisbyers.app/*"
+  to = "https://chrisbyers.app/:splat"
+  status = 301
+  force = true
+
+# ---------------------------------------------------------------------------
+# Headers
+# ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self' mailto:; base-uri 'self'; frame-ancestors 'self'; object-src 'none'; upgrade-insecure-requests"
+
+# Fingerprint-free assets: these filenames are stable, so keep the TTL modest
+# enough that a redeploy is picked up, but long enough to help repeat visits.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
