@@ -883,38 +883,7 @@ main:focus {
   transform: translate(2px, -2px);
 }
 
-.now-after {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 16px;
-  margin-top: 16px;
-  padding: 16px 24px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--white);
-  color: var(--muted);
-  font-size: 14.5px;
-  line-height: 1.5;
-}
-
-.now-after strong {
-  display: inline-flex;
-  align-items: center;
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.now-after strong::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  margin-right: 12px;
-  border-radius: 50%;
-  background: var(--blue-2);
-}
-
-/* Record */
+/* History */
 
 .timeline {
   border-top: 1px solid var(--line);
@@ -925,8 +894,9 @@ main:focus {
 }
 
 .role--lead {
-  margin-bottom: 16px;
-  padding: 0 28px;
+  --lead-inset: calc(var(--gutter) * 0.5);
+  margin: 0 calc((var(--lead-inset) + 1px) * -1) 16px;
+  padding: 0 var(--lead-inset);
   border: 1px solid #cfdcee;
   border-radius: 24px;
   background: var(--sky-2);
@@ -1868,10 +1838,6 @@ main:focus {
     grid-row: 1 / span 2;
     align-self: center;
     margin-top: 0;
-  }
-
-  .role--lead {
-    padding: 0 20px;
   }
 
   .role-body {
